@@ -233,11 +233,11 @@ class FMnistExperiment:
             }
 
             scores = self.__model.evaluate(**ev_params)
-            metric_names = ['loss'] + self.__params.metrics
+            test_metric_names = ['test_loss', 'test_acc', 'test_precision_m', 'test_recall_m', 'test_f1_m']
 
-            d = dict(list(zip(metric_names, scores)))
-            for k,v in d.items():
-                mlflow.log_metric(str(k), v)
+            d = dict(zip(test_metric_names, scores))
+            for k, v in d.items():
+                mlflow.log_metric(k, v)
 
             return d
 
