@@ -1,0 +1,8 @@
+numpy==1.16.4
+tensorflow==1.14.0
+keras==2.2.5
+mlflow==1.2.0
+
+tfmpl
+# Postgres Database Connection
+psycopg2

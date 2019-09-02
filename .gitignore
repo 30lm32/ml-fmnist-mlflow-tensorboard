@@ -1,0 +1,9 @@
+venv
+.idea
+
+.ipynb_checkpoints
+
+*.csv
+logs/postgres_storage
+
+

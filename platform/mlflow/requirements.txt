@@ -1,0 +1,4 @@
+mlflow==1.2.0
+
+# Postgres Database Connection
+psycopg2
