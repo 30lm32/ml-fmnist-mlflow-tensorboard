@@ -27,6 +27,15 @@ under platform directory
 * To stop platform
 
         make stop
+        
+* To visit TensorBoard type the following address on your favorite browser:
+    
+        http://localhost:6006/
+     
+* To visit Mlflow type the following address on your favorite browser:
+    
+        http://localhost:5000/
+        
 
 # ML Model
 We built CNN network to train dataset with four different metrics (accuracy, precision, recall, f1)
