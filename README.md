@@ -139,8 +139,6 @@ You may see the screenshots for TensorBoard, below.
 
 ![Image](./docs/image_tb_04.png)
 
-![Image](./docs/image_tb_05.png)
-
 
 ### MLflow and Postgres
 This service is being used to keep track and manage model parameters, metrics, model artifacts.
