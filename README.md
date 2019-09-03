@@ -9,24 +9,26 @@ under platform directory
 
 ## Usage
 
-Please, note that before staring use this project, download the dataset via the link below
-https://www.kaggle.com/zalando-research/fashionmnist
+1. Please, note that download the dataset (fashion-mnist_train.csv, fashion-mnist_test.csv) via the link below before staring use this project.
 
-You will find `makefile` to kick off the platform. It has three different commands to build, start, and stop platform.
+    https://www.kaggle.com/zalando-research/fashionmnist
+
+2. Add the file under `data` directory.
+3. You will find `makefile` to kick off the platform. It has three different commands to build, start, and stop platform.
 
 * To build platform
 
-    make build
+        make build
     
 * To start platform
 
-    make start
+        make start
     
 * To stop platform
 
-    make stop
+        make stop
 
-# Model
+# ML Model
 We built CNN network to train dataset with four different metrics (accuracy, precision, recall, f1)
 We are logging those metrics mlflow and tensorboard sides. In addition, we plotted confusion matrix on tensorboard side rather than notebook.
 
