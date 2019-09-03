@@ -10,6 +10,7 @@ from keras.layers import Conv2D, MaxPooling2D, BatchNormalization
 from keras.layers import Dense, Dropout, Flatten
 from keras.models import Sequential
 from keras.utils import to_categorical
+from keras.callbacks import EarlyStopping
 from sklearn.model_selection import train_test_split
 
 from fmnist.utils import TensorBoardConfusionMatrixCallback
@@ -31,6 +32,9 @@ class FMNistBuilderParameters(object):
             self.test_size = None
             self.random_state = None
             self.metrics = None
+            self.early_stopping_monitor = None
+            self.early_stopping_patience = None
+            self.early_stopping_mode = None
 
     def __init__(self):
         self.__parameters = FMNistBuilderParameters.Parameters()
@@ -43,6 +47,15 @@ class FMNistBuilderParameters(object):
     def with_image_size(self, img_height, img_width):
         self.__parameters.img_height = img_height
         self.__parameters.img_width = img_width
+        return self
+
+    def with_callback_params(self, early_stopping_monitor='val_loss',
+                             early_stopping_mode='min',
+                             early_stopping_patience=10):
+        self.__parameters.early_stopping_monitor = early_stopping_monitor
+        self.__parameters.early_stopping_mode = early_stopping_mode
+        self.__parameters.early_stopping_patience = early_stopping_patience
+
         return self
 
     def with_train_params(self,
@@ -109,8 +122,20 @@ class FMnistExperiment:
                                                                          self.__params.labels_dict)
             self.__callbacks.append(tensorboard_cm_callback)
 
+    def __init_early_stopping_callback(self):
+
+        if self.__params.early_stopping_monitor is not None and \
+                self.__params.early_stopping_mode is not None and \
+                self.__params.early_stopping_patience:
+            early_stopping_callback = EarlyStopping(monitor=self.__params.early_stopping_monitor,
+                                                    mode=self.__params.early_stopping_mode,
+                                                    verbose=1,
+                                                    patience=self.__params.early_stopping_patience)
+            self.__callbacks.append(early_stopping_callback)
+
     def __init_callbacks(self):
         self.__init_tensorboard_callbacks()
+        self.__init_early_stopping_callback()
 
     def __init_mlflow_log(self):
 

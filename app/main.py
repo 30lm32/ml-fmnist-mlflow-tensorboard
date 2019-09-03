@@ -28,6 +28,7 @@ if __name__ == '__main__':
         .with_file_paths('../data/fashion-mnist_train.csv',
                          '../data/fashion-mnist_test.csv') \
         .with_image_size(28, 28) \
+        .with_callback_params('val_loss', 'min', 10) \
         .with_train_params(batch_size=2560,
                            epochs=50,
                            labels_dict=labels_dict,
