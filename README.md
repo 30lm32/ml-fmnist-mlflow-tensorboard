@@ -1,4 +1,4 @@
-# Fashion MNIST as Cloud Service
+# Fashion MNIST as a Service on Docker
 
 In this case, we used docker container technologies to create ML platform from scratch.
 It is consists of four different docker containers (mlflow, notebook, postgres, tensorboard) that are already built in `docker-compose.yml`
