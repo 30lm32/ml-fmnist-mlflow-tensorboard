@@ -7,9 +7,42 @@ The details of containers could be found under `./platform` directory.
 Each container service has a specific dockerfile corresponding to the directories (mlflow, notebook, postgres, tensorboard) 
 under platform directory
 
+### Requirements
+Please, note that you need to install compatible `docker` and `docker-compose` version before using the service.
+You could see the version of `docker` and `docker-compose`, below.
+
+#### docker version
+
+        Client:
+         Version:           18.06.1-ce
+         API version:       1.38
+         Go version:        go1.10.3
+         Git commit:        e68fc7a
+         Built:             Tue Aug 21 17:24:56 2018
+         OS/Arch:           linux/amd64
+         Experimental:      false
+        
+        Server:
+         Engine:
+          Version:          18.06.1-ce
+          API version:      1.38 (minimum version 1.12)
+          Go version:       go1.10.3
+          Git commit:       e68fc7a
+          Built:            Tue Aug 21 17:23:21 2018
+          OS/Arch:          linux/amd64
+          Experimental:     false
+
+
+##### docker-compose version
+
+    docker-compose version 1.22.0, build f46880fe
+    docker-py version: 3.4.1
+    CPython version: 3.6.6
+    OpenSSL version: OpenSSL 1.1.0f  25 May 2017
+
 ## Usage
 
-1. Please, note that download the dataset (fashion-mnist_train.csv, fashion-mnist_test.csv) via the link below before staring use this project.
+1. Please, note that download the dataset (**fashion-mnist_train.csv**, **fashion-mnist_test.csv**) via the link below before staring use this project.
 
     https://www.kaggle.com/zalando-research/fashionmnist
 
