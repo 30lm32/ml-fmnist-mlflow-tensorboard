@@ -28,6 +28,10 @@ under platform directory
 
         make stop
         
+* To visit Notebook type the following address on your favorite browser: (You may find the token by this command: `docker logs jupyter_notebook`)
+        
+        http://localhost:8888/?token=<YOUR_TOKEN>
+
 * To visit TensorBoard type the following address on your favorite browser:
     
         http://localhost:6006/
