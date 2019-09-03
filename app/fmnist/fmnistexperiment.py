@@ -75,7 +75,6 @@ class FMnistExperiment:
     __format_logdir_scalars = '../{}/scalars/{}/'
     __tensorboard_log_dir = os.getenv('TENSORBOARD_LOGS_DIR')
 
-
     def __init__(self, params: FMNistBuilderParameters.Parameters):
 
         self.__params = params
@@ -232,9 +231,12 @@ class FMnistExperiment:
                 'verbose': 1
             }
 
-            scores = self.__model.evaluate(**ev_params)
-            test_metric_names = ['test_loss', 'test_acc', 'test_precision_m', 'test_recall_m', 'test_f1_m']
+            test_score_format = 'test_{}'
+            test_metric_names = [test_score_format.format(m.__name__) if type(m).__name__ == 'function'
+                                 else test_score_format.format(m)
+                                 for m in self.__params.metrics]
 
+            scores = self.__model.evaluate(**ev_params)
             d = dict(zip(test_metric_names, scores))
             for k, v in d.items():
                 mlflow.log_metric(k, v)

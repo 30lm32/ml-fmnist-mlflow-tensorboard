@@ -46,6 +46,5 @@ if __name__ == '__main__':
     experiment.train()
 
     # Testing dataset over the model
-    test_score = experiment.evaluate()
-    print('Test loss:', test_score[0])
-    print('Test accuracy:', test_score[1])
+    test_scores = experiment.evaluate()
+    print(test_scores)
