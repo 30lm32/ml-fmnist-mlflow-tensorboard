@@ -9,7 +9,7 @@ configparser==3.8.1
 cycler==0.10.0
 databricks-cli==0.9.0
 decorator==4.4.0
-Django==2.2.4
+Django==2.2.22
 docker==4.0.2
 entrypoints==0.3
 Flask==1.1.1
